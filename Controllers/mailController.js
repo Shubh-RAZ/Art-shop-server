@@ -8,14 +8,16 @@ const sendMail = async (req, res) => {
         const transporter = nodemailer.createTransport({
             service : 'gmail',
             auth : {
-                user : 'abc@gmail.com',
-                pass : 'password',
+                user : 'enquiryartwindow@gmail.com',
+                pass : 'aparna130012',
             }
         })
+
+        console.log(req.body.item)
         
         var mailOptions = {
             from : process.env.email,
-            to  :  'cs19b050@iittp.ac.in',
+            to  :  'coolprince2610@gmail.com',
             sub :  'from artwindow.in',
             html : `<h1>${req.body.name_}</h1>
                     <h1>${req.body.email_}</h1>
