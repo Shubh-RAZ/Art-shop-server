@@ -2,6 +2,7 @@ const userData = require('../SchemaUser')
 const jwt = require('jsonwebtoken')
 const dotenv = require('dotenv')
 dotenv.config({path:'../config.env'})
+
 const createUser = async ( req , res ) => {
     try {
         const searchData = await userData.find({'email' : req.body.email})

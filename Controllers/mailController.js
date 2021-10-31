@@ -2,22 +2,27 @@ const nodemailer = require('nodemailer');
 const dotenv = require('dotenv')
 dotenv.config({path:'../config.env'})
 
-export const sendMail = (req, res) => {
+const sendMail = async (req, res) => {
+    console.log(req.body)
     try{
         const transporter = nodemailer.createTransport({
             service : 'gmail',
             auth : {
-                user : process.env.email,
-                pass : process.env.secret_code,
+                user : 'abc@gmail.com',
+                pass : 'password',
             }
         })
         
         var mailOptions = {
             from : process.env.email,
-            to  :  'coolprince2610@gmail.com',
+            to  :  'cs19b050@iittp.ac.in',
             sub :  'from artwindow.in',
-            text:   req.body.msg + ' email ' + req.body.email,
-            html:
+            html : `<h1>${req.body.name_}</h1>
+                    <h1>${req.body.email_}</h1>
+                    <h1>${req.body.add}</h1>
+                    <h1>${req.body.ph}</h1>
+                    <h1>${req.body.item}</h1>
+            `   
         }
 
         transporter.sendMail(mailOptions, function (error,info){
@@ -26,7 +31,6 @@ export const sendMail = (req, res) => {
                 res.status(501).json({message : "error"})
             }
             else{
-                console.log(mailOptions)
                 console.log('mail sent : ' + info.response);
                 res.status(200).json({message : "success"})
             }
@@ -36,3 +40,6 @@ export const sendMail = (req, res) => {
         console.log(err)
     }
 }
+
+
+module.exports = { sendMail }
