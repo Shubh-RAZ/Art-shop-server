@@ -12,12 +12,15 @@ const PORT = process.env.PORT || 3500
 
 const userRouter = require('./Routers/userRoute')
 const artRouter = require('./Routers/artRoute')
+const mailRouter = require('./Routers/mailRoutes')
 
 app.use(cors())
 app.use(bodyParser.json())
 
 app.use('/art', userRouter)
 app.use('/art', artRouter)
+app.use('/art', mailRouter)
+
 
 
 const connectionMongo = require('./Mongo_connection')
