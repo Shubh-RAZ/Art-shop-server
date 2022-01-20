@@ -3,13 +3,13 @@ const dotenv = require('dotenv')
 dotenv.config({path:'../config.env'})
 
 const sendMail = async (req, res) => {
-    console.log(req.body)
+    // console.log(req.body)
     try{
         const transporter = nodemailer.createTransport({
             service : 'gmail',
             auth : {
-                user : process.env.email,
-                pass : process.env.secret_code,
+                user : 'enquiryartwindow@gmail.com',
+                pass : 'aparna130012,
             }
         })
 
