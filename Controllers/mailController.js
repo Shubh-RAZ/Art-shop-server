@@ -38,7 +38,7 @@ const sendMail = async (req, res) => {
             if(error){
                 console.log(error);
                 // res.status(501).json({message : "error"})
-                res.json('mail failed')
+                // res.json('mail failed')
             }
             else{
                 console.log('mail sent : ' + info.response);
