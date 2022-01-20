@@ -13,7 +13,7 @@ const sendMail = async (req, res) => {
             }
         })
 
-        console.log(req.body.item)
+        // console.log(req.body.item)
         let body = `<h2> Hi This is ${req.body.name_} and I would like to purchase </h2>`
         let itemsToBePurchased = ''
         req.body.item.map( dt => {
@@ -25,7 +25,7 @@ const sendMail = async (req, res) => {
         const buyerDetails = `<h3> Address : ${req.body.add} </h3> <h3> Phone Number : ${req.body.ph} </h3> <h3> Email : ${req.body.email_} </h3>`
         body += itemsToBePurchased
         body += buyerDetails
-        console.log('items',itemsToBePurchased)
+        // console.log('items',itemsToBePurchased)
         
         var mailOptions = {
             from : process.env.email,
