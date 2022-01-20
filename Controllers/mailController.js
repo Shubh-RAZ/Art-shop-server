@@ -9,7 +9,7 @@ const sendMail = async (req, res) => {
             service : 'gmail',
             auth : {
                 user : 'enquiryartwindow@gmail.com',
-                pass : 'aparna130012,
+                pass : 'aparna130012',
             }
         })
 
