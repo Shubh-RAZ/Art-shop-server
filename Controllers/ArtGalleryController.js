@@ -23,7 +23,7 @@ const addArt = async ( req , res ) => {
 const getArt = async ( req , res ) => {
     try {
         const dataToBeShown = await artData.find()
-        console.log(dataToBeShown)
+        // console.log(dataToBeShown)
         res.json(dataToBeShown)
     }
 
@@ -51,7 +51,7 @@ const getArtById = async ( req , res ) => {
 
 
      
-        console.log(cartArray)
+        // console.log(cartArray)
         res.json(cartArray)
     }
 
