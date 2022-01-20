@@ -6,7 +6,7 @@ dotenv.config({path:'../config.env'})
 const createUser = async ( req , res ) => {
     try {
         const searchData = await userData.find({'email' : req.body.email})
-        console.log(searchData)
+        // console.log(searchData)
         if(searchData.length !== 0 ){
             const token = await createToken(searchData[0]._id)
               res.json([{
