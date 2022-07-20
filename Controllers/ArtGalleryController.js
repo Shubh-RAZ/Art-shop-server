@@ -32,6 +32,49 @@ const getArt = async ( req , res ) => {
     }
 }
 
+const updateHeart = async ( req , res ) => {
+    try{
+
+        artData.findById(req.body.id, function (err, doc) {
+            if (err){
+                console.log(err);
+            }
+            else{
+                let heart
+                if(req.body.increase){
+                    heart = doc.hearts + 1
+                }
+                else{
+                    if(doc.hearts == 0){
+                        heart =0
+                    }
+                    else{
+                        heart = doc.hearts- 1
+                    }
+                }
+                
+                artData.findByIdAndUpdate(req.body.id, { hearts: heart },
+                function (err, docs) {
+                    if(err){
+                        console.log(err)
+                    }
+                    else{
+                        console.log("Updated User : ", docs);
+                        res.json(heart)
+                    }
+});
+
+            }
+        })
+
+
+        }
+
+    catch{
+        console.log('Error while updating heart')
+    }
+}
+
 const getArtById = async ( req , res ) => {
     try{
         const temp = req.body
@@ -41,15 +84,16 @@ const getArtById = async ( req , res ) => {
 
         allData.map( dt => {
            temp.map( (data,index) => {
-            if(index > 0){
+            if(index => 0){
                 if(dt._id == data){
+                    console.log(dt)
                     cartArray.push(dt)
                 }
             }
            })
-        })
-
-
+       })
+        // 
+        // console.log(temp)
      
         // console.log(cartArray)
         res.json(cartArray)
@@ -61,4 +105,4 @@ const getArtById = async ( req , res ) => {
 }
 
 
-module.exports = { addArt , getArt , getArtById }
+module.exports = { addArt , getArt , getArtById , updateHeart}

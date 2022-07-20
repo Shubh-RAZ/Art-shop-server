@@ -60,7 +60,7 @@ const loginUser = async ( req , res ) => {
 
 const verifyToken = async ( req , res ) => {
     try {
-        console.log(req.body)
+        // console.log(req.body)
         const userId = await jwt.verify( req.body.token , process.env.JWT_SECRET_TOKEN)
         res.json( userId.id)
     }
