@@ -84,7 +84,7 @@ const getArtById = async ( req , res ) => {
 
         allData.map( dt => {
            temp.map( (data,index) => {
-            if(index => 0){
+            if(index >= 0){
                 if(dt._id == data){
                     console.log(dt)
                     cartArray.push(dt)
