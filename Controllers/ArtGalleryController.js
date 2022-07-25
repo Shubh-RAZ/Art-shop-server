@@ -104,5 +104,25 @@ const getArtById = async ( req , res ) => {
     }
 }
 
+const getIndividualArtById = ( req , res ) => {
+    try{
+        console.log(req.body.id)
 
-module.exports = { addArt , getArt , getArtById , updateHeart}
+          artData.findById(req.body.id, (err , data) => {
+        if(err){
+            console.log('err in data',err)
+        }
+
+        else{
+            res.json(data)
+        }
+     })
+    }
+
+    catch{
+        res.json('error while fetching detailed art view')
+    }
+}
+
+
+module.exports = { addArt , getArt , getArtById , updateHeart, getIndividualArtById }
